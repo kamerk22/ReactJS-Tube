@@ -12,10 +12,9 @@
 }
 
 .video-detail .details {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px 
+    margin-top: 20px;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 4px  */
 }
 
 .list-group-item {
@@ -23,5 +22,5 @@
 }
 
 .list-group-item:hover {
-    background-color: #eee;
+    background-color: #81D4FA
 } 

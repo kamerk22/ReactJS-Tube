@@ -23,6 +23,7 @@ export default class SearchBar extends Component {
                 event => this.onInputChange(event.target.value)
             }
             />
+            
             </div>
         );
     }
