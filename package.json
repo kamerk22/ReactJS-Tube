@@ -1,4 +1,4 @@
-{
+  {
   "name": "redux-simple-starter",
   "version": "1.0.0",
   "description": "Simple starter package for Redux with React and Babel support with updated dependencies.",
@@ -32,6 +32,7 @@
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "youtube-api-search": "^0.0.5"
   }
 }
