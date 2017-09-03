@@ -14,29 +14,37 @@ class App extends Component {
     this.state = {
       videos: [],
       selectedVideo: null
-    };
+    };   
+    
+    this.videoSearch('webmobtech'); 
+  }
 
-    YTsearch({key: Env.API, term: 'skrillex'}, (videos) => {
+  videoSearch = (term) => {
+    YTsearch({key: Env.API, term: term}, (videos) => {
       this.setState({ 
         videos: videos,
         selectedVideo: videos[0]
        });
     }); 
-    
   }
+  
   render() {
     return(
-    <div>
-      <SearchBar/>
+    <div className="container">
+      <div className="row">
+      <SearchBar
+        onSearchTermChange={term => this.videoSearch(term)}
+      />
       <VideoDetails 
         video={this.state.selectedVideo}
         />
       <VideoList 
         onVideoSelect={selectedVideo => this.setState({selectedVideo})}
         videos={this.state.videos}/>
+        </div>
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<App />, document.querySelector('.app'));

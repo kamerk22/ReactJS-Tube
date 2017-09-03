@@ -14,17 +14,14 @@ export default class VideoListItem extends Component {
         const imgUrl = videos.snippet.thumbnails.default.url;
         return ( 
             <li className="list-group-item" onClick={() => onVideoSelect(videos)}>
-                <div className="video-list media">
-                    <div className="media-left">
-                        <img className="media-object" src={imgUrl}/>
-                    </div>
-
-                    <div className="media-body">
-                    <div className="media-heading">
-                        { videos.snippet.title }
-                    </div>
-                </div>  
-                </div>
+            
+                    
+                <div className="media">
+  <img className="d-flex mr-3" src={imgUrl} alt={ videos.snippet.title } />
+  <div className="media-body">
+    <h6 className="mt-0">{ videos.snippet.title }</h6>
+  </div>
+</div>
 
             </li>
         );
