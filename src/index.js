@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Env from '../.env';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
+import VideoDetails from './components/video_detail';
 import YTsearch from 'youtube-api-search';
 
 class App extends Component {
@@ -11,11 +12,15 @@ class App extends Component {
     super(props);
 
     this.state = {
-      videos: []
+      videos: [],
+      selectedVideo: null
     };
 
     YTsearch({key: Env.API, term: 'skrillex'}, (videos) => {
-      this.setState({ videos });
+      this.setState({ 
+        videos: videos,
+        selectedVideo: videos[0]
+       });
     }); 
     
   }
@@ -23,7 +28,12 @@ class App extends Component {
     return(
     <div>
       <SearchBar/>
-      <VideoList videos={this.state.videos}/>
+      <VideoDetails 
+        video={this.state.selectedVideo}
+        />
+      <VideoList 
+        onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+        videos={this.state.videos}/>
       </div>
     );
   }
